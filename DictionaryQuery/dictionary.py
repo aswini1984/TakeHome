@@ -2,7 +2,7 @@ import requests
 import json
 
 # define API key and base url
-api_key = "REMOVED"
+api_key = "REMOVED"           ##Removed for security
 base_url = "https://dictionaryapi.com/api/v3/references/collegiate/json/"
 
 
@@ -35,6 +35,9 @@ def get_definition(wordCheck):
                                             val = (meanVal['dt'][0][1])
 
                     print("Definition for ", wordCheck)
+                    if not val:
+                        val = "Not Found"
+
                     print(soundVal, " (", typeVal, ") :", val.replace("{bc}", "").replace("{sx|use||}", ""))
                     # print(soundVal, " (", typeVal, ") :", val)
                     break
